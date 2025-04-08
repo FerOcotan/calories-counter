@@ -12,7 +12,7 @@ type FormProps = {
   }
   
 
-export default function Form({dispatch} : FormProps) {
+export default function Form({dispatch,state} : FormProps) {
 
     const initialState: Activity = {
         id: uuidv4(),
@@ -24,6 +24,13 @@ export default function Form({dispatch} : FormProps) {
 
 
   const [activity, setActivity] = useState<Activity>(initialState);
+
+  useEffect(() => {
+    if(state.activeId) {
+      const selectedActivity = state.activities.filter( stateActivity => stateActivity.id === state.activeId )[0]
+      setActivity(selectedActivity)
+    }
+  }, [state.activeId])
 
 
   const handleChange = (
