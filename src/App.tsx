@@ -45,15 +45,8 @@ function App() {
           </div>
       </section>
 
-      <section>
 
-        <ActivityList 
-          activities={state.activities}
-          dispatch={dispatch}
-        />
-      </section>
-
-      <section className="container mx-auto p-4 bg-violet-100">
+      <section className="container mx-auto p-4 bg-violet-400 ">
         <div
         className='flex flex-col gap-4'
         
@@ -67,6 +60,16 @@ function App() {
 
         </div>
       </section>
+
+      <section>
+
+        <ActivityList 
+          activities={state.activities}
+          dispatch={dispatch}
+        />
+      </section>
+
+   
 
 
     </>
