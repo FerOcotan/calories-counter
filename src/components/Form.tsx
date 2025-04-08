@@ -1,16 +1,30 @@
 import React from "react";
 import { categories } from "../data/categories";
 import { useState, ChangeEvent, FormEvent, Dispatch, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import type { Activity } from "../types";
-export default function Form() {
+import { ActivityActions, ActivityState } from "../reducers/activity-reducer";
+
+
+type FormProps = {
+    dispatch: Dispatch<ActivityActions>,
+    state: ActivityState
+  }
+  
+
+export default function Form({dispatch} : FormProps) {
+
+    const initialState: Activity = {
+        id: uuidv4(),
+        category: 1,
+        name: "",
+        calories: 0,
+      };
+    
+
+
   const [activity, setActivity] = useState<Activity>(initialState);
 
-  const initialState: Activity = {
-    id: uuidv4(),
-    category: 1,
-    name: "",
-    calories: 0,
-  };
 
   const handleChange = (
     e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>
@@ -40,7 +54,7 @@ export default function Form() {
     });
   };
 
-  
+
 
   return (
     <form

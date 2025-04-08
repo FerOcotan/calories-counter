@@ -1,7 +1,11 @@
-
+import { useReducer } from 'react';
 import Form from './components/Form';
+import { activityReducer, initialState, ActivityState } from './reducers/activity-reducer';
 
 function App() {
+
+  const [state, dispatch] = useReducer(activityReducer, initialState);
+    
 
   return (
     <>
@@ -20,8 +24,9 @@ function App() {
         <div >
           <h2 className="text-xl font-bold mb-4">Calorias</h2>
         
-          <Form />
-
+          <Form 
+          dispatch={dispatch}
+           state={state} />
           </div>
       </section>
 
