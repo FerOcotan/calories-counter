@@ -1,4 +1,4 @@
-import React from "react";
+
 import { categories } from "../data/categories";
 import { useState, ChangeEvent, FormEvent, Dispatch, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
